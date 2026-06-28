@@ -1,0 +1,21 @@
+services:
+  app:
+    image: kashifhm333/mongo-mingle:v1
+    container_name: mongo-mingle-app
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/mongoMingle
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: mongo-mingle-db
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

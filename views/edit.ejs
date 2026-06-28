@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+      <script src="https://cdn.tailwindcss.com"></script>  
+      <link rel="stylesheet" href="/stylesheets/edit.css">
+</head>
+<body>
+    <div class="main "></div>
+    <h1>Edit User</h1>
+    <div class="form flex flex-col gap-3 ">
+        <a href="/read" class="w-[170px] text-blue-500 hover:text-blue-700 bg-blue-500 text-white py-2 px-4 rounded-lg ">Back to View Users</a>
+    <form action="/update/<%= userId %>" method="POST" class="flex flex-col gap-3">
+        <div class="name flex">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 mt-3 mx-2 rounded-lg bg-transparent" value="<%= name%>"  name="previousName" placeholder="Previous Name">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 mt-3 mx-2 rounded-lg bg-transparent" name="newName" placeholder="New Name">
+            </div>
+            <div class="email flex">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 mt-3 mx-2 rounded-lg bg-transparent" value="<%= email %>" name="previousEmail" placeholder="Previous Email">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 mt-3 mx-2 rounded-lg bg-transparent" name="newEmail" placeholder="New Email">
+            </div>
+            <div class="image flex">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 mt-3 mx-2 rounded-lg bg-transparent" value="<%= image %>" name="previousImage" placeholder="Previous Image Url">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 mt-3 mx-2 rounded-lg bg-transparent" name="newImage" placeholder="New Image Url">
+            </div>
+            <input type="submit" value="Update" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
+        </form>
+    </div>
+</body>
+</html>

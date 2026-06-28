@@ -40,6 +40,28 @@ app.get("/delete/:id", async (req, res) => {
     res.redirect("/read");
 });
 
+app.get("/edit/:id", async (req, res) => {
+    let userId = req.params.id;
+
+
+    let user = await userModel.findById(userId);
+    res.render("edit", { userId: req.params.id, name: user.name, email: user.email, image: user.image });
+});
+
+app.post("/update/:id", async (req, res) => {
+    let userId = req.params.id;
+    let { previousName, newName, previousEmail, newEmail, previousImage, newImage } = req.body;
+
+    await userModel.findByIdAndUpdate(userId, {
+        name: newName,
+        email: newEmail,
+        image: newImage
+        
+    });
+
+    res.redirect("/read");
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

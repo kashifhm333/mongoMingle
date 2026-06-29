@@ -10,8 +10,8 @@ services:
       - mongo
 
   mongo:
-    container_name: mongo-mingle-db
     image: mongo:latest
+    container_name: mongo-mingle-db
     ports:
       - "27017:27017"
     volumes:
